@@ -1,9 +1,16 @@
 body{
     background-color:burlywood;
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
 }
 
 .body1{
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    
+}
+
+img{
+    width: 150px;
 }
