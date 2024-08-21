@@ -2,7 +2,7 @@ body{
     background-color:burlywood;
 }
 
-#login{
+.body1{
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
