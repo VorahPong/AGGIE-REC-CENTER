@@ -5,7 +5,7 @@ body{
 
 table {
     border-collapse: collapse;
-    border: 2px solid rgb(200,200,200);
+    border: 2px solid rgb(5, 2, 2);
     letter-spacing: 1px;
     font-size: 0.8rem;
 }
@@ -17,9 +17,29 @@ td, th {
 
 td {
     text-align: center;
+    background-color: aliceblue;
 }
 
 caption {
     padding: 10px;
 }
-  
+
+thead {
+    color: aliceblue;
+    background-color:darkgoldenrod ;
+}
+
+.open {
+    background-color:green;
+    color: aliceblue;
+}
+
+.closed {
+    background-color: red;
+    color: aliceblue;
+}
+
+#activities {
+    background-color:darkorange;
+    color: black;
+}
