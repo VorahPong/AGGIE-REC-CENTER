@@ -17,6 +17,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 
 // test account
@@ -33,7 +34,6 @@ login_btn.addEventListener('click', function(){
     const email = document.querySelector('#user_email').value;
     const password = document.querySelector('#user_password').value;
     //
-    const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed in 
