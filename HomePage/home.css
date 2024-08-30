@@ -1,7 +1,26 @@
 body{
     background-color:burlywood;
+    margin: 0;
 }
 
 img{
     width: 100px;
+    border-radius: 20px;
+}
+
+.navigation-bar {
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+
+    font-size: 18px;
+    color: #E5E7EB;
+    background-color: brown;
+    
+    
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
 }

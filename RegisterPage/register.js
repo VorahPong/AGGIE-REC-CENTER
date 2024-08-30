@@ -16,15 +16,15 @@ const firebaseConfig = {
   appId: "1:686238141979:web:f41c5c10271c38128572be"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
 
 const confirm_btn = document.querySelector('#confirm_btn');
 confirm_btn.addEventListener('click', (event) => {
     event.preventDefault();
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
     // Get user inputs for register
     const email = document.querySelector('#user_email').value;
@@ -53,7 +53,8 @@ confirm_btn.addEventListener('click', (event) => {
             qr_code: null,
             last_login: Date.now()
         };
-        await setDoc(doc(db, "students", email), user_data);
+        const user_auth = auth.currentUser;
+        await setDoc(doc(db, "students", user_auth.uid), user_data);
         alert("Account created");
         window.location.href = "../index.html";
         // ...
