@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/fireba
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,16 +16,6 @@ const firebaseConfig = {
   appId: "1:686238141979:web:f41c5c10271c38128572be"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-
-// test account
-// const admin_id = 'admin';
-// const admin_password = '999';
-//
-
 
 
 // when click login button
@@ -34,12 +25,30 @@ login_btn.addEventListener('click', function(){
     const email = document.querySelector('#user_email').value;
     const password = document.querySelector('#user_password').value;
     //
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
         alert('Login Successful');
-        window.location.href = './HomePage/home.html';
+        // Increment the counter of login
+        const db = getDatabase(app);
+        const dbRef = ref(db);
+        const loginCounter = ref(db, 'loginCounter');
+        get(child(dbRef, 'loginCounter')).then((snapshot) => {
+            if (snapshot.exists()) {
+                set(loginCounter, snapshot.val()+1);
+            } else {
+              console.log("No data available");
+            }
+          }).catch((error) => {
+            console.error(error);
+          });
+    
+        // wait for firebase to complete it update.
+        setTimeout(() => {window.location.href = './HomePage/home.html';}, "1 second");
         // ...
     })
     .catch((error) => {
