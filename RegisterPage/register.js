@@ -19,42 +19,41 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
- 
+const db = getFirestore(app);
 
-// Get user inputs for register
-const user_id = document.querySelector('#user_id').value;
-const user_firstName = document.querySelector('#user_firstName').value;
-const user_lastName = document.querySelector('#user_lastName').value;
-const user_password_confirm = document.querySelector('#user_password_confirm').value;
-//
 
 const confirm_btn = document.querySelector('#confirm_btn');
 confirm_btn.addEventListener('click', (event) => {
     event.preventDefault();
 
+    // Get user inputs for register
     const email = document.querySelector('#user_email').value;
     const password = document.querySelector('#user_password').value;
+    const user_id = document.querySelector('#user_id').value;
+    const user_firstName = document.querySelector('#user_firstName').value;
+    const user_lastName = document.querySelector('#user_lastName').value;
 
-    //alert("good");
-    // if(validate_email(user_email) === false) {
-    //     alert('Email is not valid!!');
-    //     return;
-    // }
-    // if(validate_field(user_firstName) === false || validate_field(user_lastName) === false || validate_field(user_id) == false) {
-    //     alert('Missing information');
-    //     return;
-    // }
-    // if(password !== user_password_confirm) {
-    //     alert('Password does not match!');
-    //     return;
-    // }
+    if(password < 6) {
+        alert('Password must be longer than 6 characters');
+        return;
+    }
     
 
     // if everything are good, move on with auth
     createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
         // Signed up 
         const user = userCredential.user;
+        const user_data = {
+            email: email,
+            first_Name: user_firstName,
+            last_Name: user_lastName,
+            student_id: user_id,
+            borrow_ball: false,
+            qr_code: null,
+            last_login: Date.now()
+        };
+        await setDoc(doc(db, "students", email), user_data);
         alert("Account created");
         window.location.href = "../index.html";
         // ...
@@ -66,32 +65,3 @@ confirm_btn.addEventListener('click', (event) => {
         // ..
     });
 });
-
-//
-function validate_email(user_email) {
-    if(/^[^@]+@\w+(\.\w+)+\w$/.test(user_email) === true) {
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
-function validate_password(user_password) {
-    // firebase only accepts lengths greater than 6
-    if(user_password < 6) {
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-function validate_field(field) {
-    if(field === null) {
-        return false;
-    }
-    else {
-        return true;
-    }
-}
