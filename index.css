@@ -59,8 +59,6 @@ input {
     border-radius: 7px;
 }
 
-
-
 input:focus{
     outline: 2px solid #0f62fe;
     outline-offset: -2px;

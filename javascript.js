@@ -32,6 +32,7 @@ login_btn.addEventListener('click', function(){
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        localStorage.setItem('userId', user.uid);
         alert('Login Successful');
         // Increment the counter of login
         const db = getDatabase(app);
@@ -46,9 +47,10 @@ login_btn.addEventListener('click', function(){
           }).catch((error) => {
             console.error(error);
           });
-    
-        // wait for firebase to complete it update.
-        setTimeout(() => {window.location.href = './HomePage/home.html';}, "1 second");
+
+          // redirect
+          setTimeout(()=>{ window.location.href = './HomePage/home.html' }, 1000);
+
         // ...
     })
     .catch((error) => {
