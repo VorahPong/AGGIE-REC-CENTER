@@ -1,5 +1,5 @@
 # AGGIE-REC-CENTER
 Student Team Project Collaboration
 
-<img width="400" alt="Screenshot 2024-08-28 at 11 20 05 AM" src="https://github.com/user-attachments/assets/362f5e6c-d092-4a92-823b-3a0bde702d24">
-<img width="255" alt="Screenshot 2024-08-28 at 11 22 23 AM" src="https://github.com/user-attachments/assets/3929a046-b1fe-4002-9a30-fdde5f0d419b">
+<img width="800" alt="Screenshot 2024-08-31 at 11 22 15 PM" src="https://github.com/user-attachments/assets/51a69258-6daf-4c94-b68d-bad1025d3dc4">
+<img width="800" alt="Screenshot 2024-08-31 at 11 22 07 PM" src="https://github.com/user-attachments/assets/3a1918cf-ed88-4fe1-963e-772618664378">
