@@ -39,22 +39,31 @@ getAuth(app).onAuthStateChanged((user) => {
 
 // get data
 const userDocRef = doc(db_firebase, 'students', userId);
-let userData;
-
-function handleUserData(data) {
-    userData = data;
-}
 
 getDoc(userDocRef)
 .then((doc) => {
         if (doc.exists()) {
             // User document exists, get the data
-            handleUserData(doc.data());
+            const userData = doc.data();
+            console.log(userData);
             // ... Use the retrieved data ...
             // Updating Welcome
             const welcome = document.querySelector('#welcome');
             welcome.textContent = `Welcome, ${userData.first_Name}!`
-            //console.log('User Data:', userData);
+            // Updating borrow ball status
+            const borrow_ball = document.querySelector('#borrow_ball');
+            borrow_ball.textContent = `Borrowing a Ball: ${userData.borrow_ball}`;
+            // Updating Account Info
+            const display_name = document.querySelector('#display_name');
+            display_name.textContent = `Name: ${userData.first_Name} ${userData.last_Name}`;
+
+            const display_id = document.querySelector('#display_id');
+            display_id.textContent = `ID: ${userData.student_id}`;
+            
+            const display_lastlogin = document.querySelector('#display_lastlogin');
+            display_lastlogin.textContent = `Last Login: ${Date(userData.last_login * 1000).split(' ').slice(0, 4).join(' ')}`;
+            
+
         } else {
             // User document does not exist
             console.error('User document not found');
@@ -64,13 +73,6 @@ getDoc(userDocRef)
     console.error('Error getting user document:', error);
 });
 
-// Access userData after the data is retrieved
-setTimeout(() => {
-    console.log('User Data (after retrieval):', userData); 
-  }, 1000); // Add a delay to ensure data is retrieved
-console.log(userData);
-//
-
 // Updating login counter
 const loginCounter = ref(db, 'loginCounter');
 let value;
@@ -79,7 +81,6 @@ onValue(loginCounter, (snapshot) => {
     const loginCounterText = document.querySelector('#loginCounter');
     loginCounterText.textContent = `Amount of user logins today: ${data}`;
   });
-
 
 // clicking on each function
 const functions = document.querySelectorAll('img');

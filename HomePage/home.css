@@ -9,7 +9,6 @@ img{
 }
 
 .navigation-bar {
-    margin-bottom: 20px;
 
     display: flex;
     flex-direction: column;
@@ -45,4 +44,33 @@ button{
     width: 100px;
     padding: 5px;
     margin-top: 10px;
+}
+
+.body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.right {
+    font-size: 18px;
+    color: black;
+    background-color:cornsilk;
+    border-radius: 10px;
+
+    padding: 10px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
