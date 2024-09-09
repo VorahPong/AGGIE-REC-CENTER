@@ -44,16 +44,16 @@ confirm_btn.addEventListener('click', (event) => {
     .then(async (userCredential) => {
         // Signed up 
         const user = userCredential.user;
+        const user_auth = auth.currentUser;
         const user_data = {
             email: email,
             first_Name: user_firstName,
             last_Name: user_lastName,
             student_id: user_id,
             borrow_ball: false,
-            qr_code: null,
+            qr_code: "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + user_auth.uid,
             last_login: Date.now()
         };
-        const user_auth = auth.currentUser;
         await setDoc(doc(db, "students", user_auth.uid), user_data);
         alert("Account created");
         window.location.href = "../index.html";

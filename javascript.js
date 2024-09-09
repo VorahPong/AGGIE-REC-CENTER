@@ -5,6 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/fireba
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
 
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBdMd1YfF6bmNUVsBWnlmxn7kFCKviGHrY",
@@ -16,7 +17,8 @@ const firebaseConfig = {
   appId: "1:686238141979:web:f41c5c10271c38128572be"
 };
 
-
+//clear anything login info
+localStorage.clear();
 
 // when click login button
 const login_btn = document.querySelector('#login_btn');

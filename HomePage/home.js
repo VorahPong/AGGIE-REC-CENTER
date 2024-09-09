@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
 import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
-import { getFirestore, getDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+import { getFirestore, getDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBdMd1YfF6bmNUVsBWnlmxn7kFCKviGHrY",
@@ -37,9 +37,15 @@ getAuth(app).onAuthStateChanged((user) => {
     }
   });
 
-// get data
+
+
+// get data ref
 const userDocRef = doc(db_firebase, 'students', userId);
 
+// update data
+await setDoc(userDocRef, {last_login: Date.now()}, {merge:true});
+
+// get data
 getDoc(userDocRef)
 .then((doc) => {
         if (doc.exists()) {
@@ -102,4 +108,4 @@ for (let index = 0; index < functions.length; index++) {
 
 // Buttons click
 const logout_btn = document.querySelector('#logout_btn');
-logout_btn.addEventListener('click', () => { signOut(auth); });
+logout_btn.addEventListener('click', () => { signOut(auth); localStorage.clear(); });
