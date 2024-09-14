@@ -10,7 +10,7 @@
 <body>
     <h1>Gym Schedule</h1>
 
-    <table>
+    <table id="gymTable">
         <thead>
             <tr>
                 <td>&nbsp;</td>
@@ -34,12 +34,6 @@
             <td class="open">1:00 PM</td>
         </tr>
         <tr>
-            <th id="activities">Activities</th>
-            <td class="basketball">Basketball 4:00 PM</td>
-            <td class="swim">Swim 3:00 PM</td>
-            <td class="volleyball">Volleyball 6:00 PM</td>
-        </tr>
-        <tr>
             <th class="closed">Closed</th>
             <td class="closed">10:00 PM</td>
             <td class="closed">10:00 PM</td>
@@ -50,8 +44,22 @@
             <td class="closed">8:00 PM</td>
         </tr>
     </table>
-    
-    <button>Make a request</button>
+
+    <div class="container">
+        <div class="todayEvent">
+            <h1>Today's Reserved Time / Events</h1>
+            <ul id="activityList">
+                <li>Basketball at 4:30 PM - 6:30 PM</li>
+            </ul>
+            <input type="text" id="activity" placeholder="Activity">
+            <div>Start time</div>
+            <input type="time" id="time_start">
+            <div>End time</div>
+            <input type="time" id="time_end">
+            <button id="makeRequest_btn">Make a request</button>
+        </div>
+        
+    </div>
 
     <h2>AGGIE REC CENTER</h2>
     <p>The Aggie Rec Center promotes and encourages the pursuit of a healthy lifestyle by providing tools and opportunities to achieve each individual’s personal fitness goals. We are committed to providing an active environment for social interaction, all while maintaining a friendly, safe, and positive atmosphere.</p>
@@ -59,6 +67,6 @@
     <h2>Holiday Schedule</h2>
     <p>The Aggie Rec Center will be closed on the following days: Independence Day, Labor Day, Thanksgiving Day, Christmas Eve and Christmas Day, New Years Eve, New Years Day, Easter, and Memorial Day.</p>
 
-    <script src="schedule.js"></script>
+    <script src="schedule.js" type="module"></script>
 </body>
 </html>

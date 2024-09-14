@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
     background-color:burlywood;
     font-family: sans-serif;
@@ -42,4 +47,43 @@ thead {
 #activities {
     background-color:darkorange;
     color: black;
+}
+
+button{
+    padding: 6px 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 6px;
+    border: none;
+  
+    background: #e9e7ed;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+    color: #2e2c2e;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.container {
+    width: 55%;
+    min-height: 50vh;
+    background: linear-gradient(135deg, burlywood, rgba(11, 236, 52, 0.56));
+    padding: 10px;
+    border-radius: 10px;
+}
+.todayEvent {
+    width: 100%;
+    background: #fff;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+ul li {
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    position: relative;
+}
+
+ul {
+    margin: 20px;
 }
