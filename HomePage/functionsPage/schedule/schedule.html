@@ -8,42 +8,43 @@
     <link rel="manifest" href="../../everyPageManifest.json">
 </head>
 <body>
-    <h1>Gym Schedule</h1>
-
-    <table id="gymTable">
-        <thead>
+    <div class="one">
+        <h1>Gym Schedule</h1>
+        <table id="gymTable">
+            <thead>
+                <tr>
+                    <td>&nbsp;</td>
+                    <th>Mon</th>
+                    <th>Tues</th>
+                    <th>Wed</th>
+                    <th>Thurs</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                </tr>
+            </thead>
             <tr>
-                <td>&nbsp;</td>
-                <th>Mon</th>
-                <th>Tues</th>
-                <th>Wed</th>
-                <th>Thurs</th>
-                <th>Fri</th>
-                <th>Sat</th>
-                <th>Sun</th>
+                <th class="open">Open</th>
+                <td class="open">6:00 AM</td>
+                <td class="open">6:00 AM</td>
+                <td class="open">6:00 AM</td>
+                <td class="open">6:00 AM</td>
+                <td class="open">6:00 AM</td>
+                <td class="open">8:00 AM</td>
+                <td class="open">1:00 PM</td>
             </tr>
-        </thead>
-        <tr>
-            <th class="open">Open</th>
-            <td class="open">6:00 AM</td>
-            <td class="open">6:00 AM</td>
-            <td class="open">6:00 AM</td>
-            <td class="open">6:00 AM</td>
-            <td class="open">6:00 AM</td>
-            <td class="open">8:00 AM</td>
-            <td class="open">1:00 PM</td>
-        </tr>
-        <tr>
-            <th class="closed">Closed</th>
-            <td class="closed">10:00 PM</td>
-            <td class="closed">10:00 PM</td>
-            <td class="closed">10:00 PM</td>
-            <td class="closed">10:00 PM</td>
-            <td class="closed">8:00 PM</td>
-            <td class="closed">6:00 PM</td>
-            <td class="closed">8:00 PM</td>
-        </tr>
-    </table>
+            <tr>
+                <th class="closed">Closed</th>
+                <td class="closed">10:00 PM</td>
+                <td class="closed">10:00 PM</td>
+                <td class="closed">10:00 PM</td>
+                <td class="closed">10:00 PM</td>
+                <td class="closed">8:00 PM</td>
+                <td class="closed">6:00 PM</td>
+                <td class="closed">8:00 PM</td>
+            </tr>
+        </table>
+    </div>
 
     <div class="container">
         <div class="todayEvent">
@@ -58,12 +59,6 @@
         </div>
         
     </div>
-
-    <h2>AGGIE REC CENTER</h2>
-    <p>The Aggie Rec Center promotes and encourages the pursuit of a healthy lifestyle by providing tools and opportunities to achieve each individual’s personal fitness goals. We are committed to providing an active environment for social interaction, all while maintaining a friendly, safe, and positive atmosphere.</p>
-
-    <h2>Holiday Schedule</h2>
-    <p>The Aggie Rec Center will be closed on the following days: Independence Day, Labor Day, Thanksgiving Day, Christmas Eve and Christmas Day, New Years Eve, New Years Day, Easter, and Memorial Day.</p>
 
     <script src="schedule.js" type="module"></script>
 </body>
