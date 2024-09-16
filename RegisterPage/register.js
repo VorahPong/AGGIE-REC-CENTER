@@ -51,6 +51,7 @@ confirm_btn.addEventListener('click', (event) => {
             last_Name: user_lastName,
             student_id: user_id,
             borrow_ball: false,
+            admin: false,
             qr_code: "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + user_auth.uid,
             last_login: Date.now()
         };
