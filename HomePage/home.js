@@ -24,6 +24,11 @@ const auth = getAuth(app);
 // get userId from local storage
 const userId = localStorage.getItem('userId');
 
+// check if user login
+if(userId === null) {
+    alert("You are not sign in");
+    window.location.href = '../index.html';
+}
 // if the userId if it is authentication
 getAuth(app).onAuthStateChanged((user) => {
     if (user) {
