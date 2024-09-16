@@ -64,7 +64,7 @@ button{
 }
 
 .container {
-    width: 55%;
+    width: fit-content;
     min-height: 50vh;
     background: linear-gradient(135deg, burlywood, rgba(11, 236, 52, 0.56));
     padding: 10px;

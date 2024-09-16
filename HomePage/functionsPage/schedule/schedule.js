@@ -1,11 +1,12 @@
-import { db_firebase, doc, getDoc, collection } from '../../../config.js'
+import { db_firestore } from '../../../config.js'
+import { updateDoc, arrayUnion, getDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
 
 const activityList = document.querySelector('#activityList');
 
 // Retrieve the array of strings
 async function getEventArray() {
-    const docRef = doc(db_firebase, 'gymEvents', 'events');
+    const docRef = doc(db_firestore, 'gymEvents', 'events');
     const docSnap = await getDoc(docRef);
   
     if (docSnap.exists()) {
@@ -22,19 +23,24 @@ async function getEventArray() {
       console.log('No such document!');
     }
   }
+
   getEventArray();
-
-
 
 const makeRequest_btn = document.querySelector('#makeRequest_btn');
 makeRequest_btn.addEventListener('click', () => {
-    const newli = document.createElement('li');
-
     const activity = document.querySelector('#activity');
     const time_start = document.querySelector('#time_start');
     const time_end = document.querySelector('#time_end');
-    newli.textContent = activity.value + ' at ' + formatTime12Hour(time_start.value) + ' - ' + formatTime12Hour(time_end.value);
-    activityList.appendChild(newli);
+    const request = activity.value + ' at ' + formatTime12Hour(time_start.value) + ' - ' + formatTime12Hour(time_end.value);
+
+    const docRef = doc(db_firestore, 'gymEvents', 'events');
+    updateDoc(docRef, {
+      event: arrayUnion(request),
+    });
+
+    // refresh list
+    activityList.innerHTML = '';
+    getEventArray();
 });
 
 function formatTime12Hour(time24) {
