@@ -1,24 +1,8 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
 import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 import { getFirestore, getDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyBdMd1YfF6bmNUVsBWnlmxn7kFCKviGHrY",
-    authDomain: "playground-db759.firebaseapp.com",
-    databaseURL: "https://playground-db759-default-rtdb.firebaseio.com",
-    projectId: "playground-db759",
-    storageBucket: "playground-db759.appspot.com",
-    messagingSenderId: "686238141979",
-    appId: "1:686238141979:web:f41c5c10271c38128572be"
-  };
-  
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db_firebase = getFirestore(app);
-const db = getDatabase(app);
-const auth = getAuth(app);
-
+import { auth, db, db_firestore, app } from '../config.js'
 
 
 // get userId from local storage
@@ -45,7 +29,7 @@ getAuth(app).onAuthStateChanged((user) => {
 
 
 // get data ref
-const userDocRef = doc(db_firebase, 'students', userId);
+const userDocRef = doc(db_firestore, 'students', userId);
 
 // update data
 await setDoc(userDocRef, {last_login: Date.now()}, {merge:true});
