@@ -87,8 +87,11 @@ for (let index = 0; index < functions.length; index++) {
             case 'schedule' :
                 window.location.href = './functionsPage/schedule/schedule.html';
                 break;
-            case 'scanner' :
+            case 'qr' :
                 window.location.href = './functionsPage/scanner/scanner.html';
+                break;
+            case 'scanner' :
+                window.location.href = './functionsPage/qrScanner/qrScanner.html';
                 break;
         }
     });
