@@ -25,6 +25,14 @@ login_btn.addEventListener('click', function(){
         // Signed in 
         const user = userCredential.user;
         localStorage.setItem('userId', user.uid);
+
+        //loading icon
+        const loading_icon = document.createElement('div');
+        loading_icon.classList.add("loader");
+        document.body.appendChild(loading_icon);
+        //
+
+
         alert('Login Successful');
         // Increment the counter of login
         // const db = getDatabase(app);
